@@ -1,4 +1,6 @@
 WinnemacSite::Application.routes.draw do
+  resources :units
+
   root 'static_pages#index'
   get "static_pages/index"
   get "static_pages/about"
