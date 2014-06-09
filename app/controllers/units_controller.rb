@@ -69,6 +69,6 @@ class UnitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unit_params
-      params.require(:unit).permit(:string, :integer, :boolean, :text)
+      params.require(:unit).permit(:title, :price, :available, :description)
     end
 end

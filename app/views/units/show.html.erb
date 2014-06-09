@@ -1,24 +1,28 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>String:</strong>
-  <%= @unit.string %>
+  <strong>Title:</strong>
+  <%= @unit.title %>
 </p>
 
 <p>
-  <strong>Integer:</strong>
-  <%= @unit.integer %>
+  <strong>Price:</strong>
+  <%= @unit.price %>
 </p>
 
 <p>
-  <strong>Boolean:</strong>
-  <%= @unit.boolean %>
+  <strong>Available:</strong>
+  <%= @unit.available %>
 </p>
 
 <p>
-  <strong>Text:</strong>
-  <%= @unit.text %>
+  <strong>Description:</strong>
+  <%= @unit.description %>
 </p>
 
 <%= link_to 'Edit', edit_unit_path(@unit) %> |
 <%= link_to 'Back', units_path %>
+
+<% @unit.images.each do |image| %>
+	<%= link_to image.description, image.image_url%>
+<% end %>
