@@ -1,28 +1,43 @@
 <p id="notice"><%= notice %></p>
+	<div class="apt-photos inner">
+		<% @unit.images.each do |image| %>
+			<div class="inner"><%= image_tag image.image_url, class: 'resized-image'%></div>
+		<% end %>
+	</div>
+
 
 <p>
-  <strong>Title:</strong>
-  <%= @unit.title %>
+	<strong>Title:</strong>
+	<%= @unit.title %>
 </p>
 
 <p>
-  <strong>Price:</strong>
-  <%= @unit.price %>
+	<strong>Price:</strong>
+	<%= @unit.price %>
 </p>
 
 <p>
-  <strong>Available:</strong>
-  <%= @unit.available %>
+	<strong>Available:</strong>
+	<%= @unit.available %>
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @unit.description %>
+	<strong>Description:</strong>
+	<%= @unit.description %>
 </p>
 
 <%= link_to 'Edit', edit_unit_path(@unit) %> |
 <%= link_to 'Back', units_path %>
 
 <% @unit.images.each do |image| %>
-	<%= link_to image.description, image.image_url%>
+<%= link_to image.description, image.image_url%>
 <% end %>
+
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.3.6/slick.min.js"></script>
+	
+<script type="text/javascript">
+$(document).ready(function(){
+	$('.apt-photos').slick();
+});
+</script>

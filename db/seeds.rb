@@ -8,7 +8,7 @@ unit1.save
 unit2.save
 unit3.save
 
-cf_domain = "http:\\\\dd8rbkyzi7hp7.cloudfront.net/"
+cf_domain = "http:\/\/dd8rbkyzi7hp7.cloudfront.net/"
 
 Image.destroy_all
 

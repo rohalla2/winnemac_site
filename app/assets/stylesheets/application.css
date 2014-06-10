@@ -11,3 +11,23 @@
  *= require_self
  *= require_tree .
  */
+
+
+.resized-image{
+	height: 300px;
+	width: auto;
+}
+
+.white-background{
+	background-color: white;
+}
+
+.slick-img-background{
+	padding: 5px;
+	height: 312px;
+}
+
+.inner {
+    width: 50%;
+    margin: 0 auto;
+}
