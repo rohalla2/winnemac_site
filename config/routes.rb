@@ -1,4 +1,6 @@
 WinnemacSite::Application.routes.draw do
+  resources :spaces
+
   resources :units
 
   root 'static_pages#index'

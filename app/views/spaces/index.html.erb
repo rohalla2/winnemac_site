@@ -1,0 +1,24 @@
+<h1>Listing available spaces</h1>
+<% @spaces.each do |space| %>
+
+<div class="row">
+  <div class="col-md-3">
+    <%= link_to(image_tag(space.image_url, :alt => "property_photo", class: "resized-image"),space_path(space)) %>
+  </div>
+  <div class="col-md-9">
+    <h2><%=space.title%></h2>
+    <h4><%= number_to_currency(space.price)%></h4>
+    <p><%=space.description%></p>
+  </div>
+</div>
+
+<%end%>
+
+<% if @spaces.count == 0%>
+  <h3>There are no spaces available</h3>
+<% end %>
+
+
+
+
+<%= link_to 'New Space', new_space_path %>
