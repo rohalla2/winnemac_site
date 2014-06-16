@@ -34,10 +34,10 @@ Image.create images
 Space.destroy_all
 
 spaces = [
-	{title: "Garage Space 1", description: "Space in the garage.", image_url:"http://openclipart.org/image/800px/svg_to_png/45937/parking_romus_01.png", price: 60, available: true},
-	{title: "Garage Space 2", description: "Space in the garage.", image_url:"http://openclipart.org/image/800px/svg_to_png/45937/parking_romus_01.png", price: 60, available: true},
-	{title: "Uncovered Space 1", description: "Outside space.", image_url:"http://openclipart.org/image/800px/svg_to_png/45937/parking_romus_01.png", price: 120, available: true},
-	{title: "Uncovered Space 2", description: "Outside space.", image_url:"http://openclipart.org/image/800px/svg_to_png/45937/parking_romus_01.png", price: 120, available: true}
+	{title: "Garage Space 1", description: "Space in the garage.", image_url:"http://openclipart.org/image/800px/svg_to_png/45937/parking_romus_01.png", price: 120, available: true},
+	{title: "Garage Space 2", description: "Space in the garage.", image_url:"http://openclipart.org/image/800px/svg_to_png/45937/parking_romus_01.png", price: 120, available: true},
+	{title: "Uncovered Space 1", description: "Outside space.", image_url:"http://openclipart.org/image/800px/svg_to_png/45937/parking_romus_01.png", price: 60, available: true},
+	{title: "Uncovered Space 2", description: "Outside space.", image_url:"http://openclipart.org/image/800px/svg_to_png/45937/parking_romus_01.png", price: 60, available: true}
 ]
 
 Space.create spaces
