@@ -1,33 +1,30 @@
-<h1>Listing units</h1>
+<h1>Listing available units:</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>String</th>
-      <th>Integer</th>
-      <th>Boolean</th>
-      <th>Text</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<% @units.each do |unit| %>
 
-  <tbody>
-    <% @units.each do |unit| %>
-      <tr>
-        <td><%= unit.title %></td>
-        <td><%= unit.price %></td>
-        <td><%= unit.available %></td>
-        <td><%= unit.description %></td>
-        <td><%= link_to 'Show', unit %></td>
-        <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
-        <td><%= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="row">
+  <div class="col-md-3">
+   <% image = unit.images.where(main: true).first %>
+   <% if !image.nil? %>
+    <%= link_to(image_tag(image.image_url, :alt => "property_photo", class: "resized-image"),unit_path(unit)) %>
+  <% else %>
+    <%= link_to(image_tag('http://dd8rbkyzi7hp7.cloudfront.net/1_ext_front.jpg', :alt => "property_photo", class: "resized-image"), unit_path(unit)) %>
+  <% end %>
+  </div>
+  <div class="col-md-9">
+    <h2><%=unit.title%></h2>
+    <h4><%= number_to_currency(unit.price)%></h4>
+    <p><%=unit.description%></p>
+  </div>
+</div>
 
-<br>
+<hr>
+
+<%end%>
+
+<% if @units.count == 0%>
+  <h3>There are no units available</h3>
+<% end %>
+
 
 <%= link_to 'New Unit', new_unit_path %>
