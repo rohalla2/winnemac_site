@@ -8,26 +8,25 @@ unit1.save
 unit2.save
 unit3.save
 
-cf_domain = "http:\/\/dd8rbkyzi7hp7.cloudfront.net/"
-
 Image.destroy_all
 
-images = [	{unit_id: unit1.id, image_url: cf_domain + "1_Kitchen_Fridge.jpg", main: true, description: "Kitchen"},
-			{unit_id: unit1.id, image_url: cf_domain + "1_Kitchen_oven.jpg", main: false, description: "Kitchen"},
-			{unit_id: unit1.id, image_url: cf_domain + "1_Kitchen_sink.jpg", main: false, description: "Kitchen"},
-			{unit_id: unit1.id, image_url: cf_domain + "1_office.jpg", main: false, description: "Office"},
-			{unit_id: unit1.id, image_url: cf_domain + "1_office_2.jpg", main: false, description: "Office"},
-			{unit_id: unit1.id, image_url: cf_domain + "1_office_3.jpg", main: false, description: "Office"},
-			{unit_id: unit1.id, image_url: cf_domain + "1_bathroom.jpg", main: false, description: "Bathroom"},
-			{unit_id: unit1.id, image_url: cf_domain + "1_bathroom_2.jpg", main: false, description: "Bathroom"},
-			{unit_id: unit1.id, image_url: cf_domain + "1_Front_room.jpg", main: false, description: "Front Room"},
-			{unit_id: unit1.id, image_url: cf_domain + "1_ext_front.jpg", main: false, description: "Front"},
-			{unit_id: unit1.id, image_url: cf_domain + "1_ext_side.jpg", main: false, description: "Side Yard"},
-			{unit_id: unit1.id, image_url: cf_domain + "1_back_bedroom.jpg", main: false, description: "Bedroom 2"},
-			{unit_id: unit1.id, image_url: cf_domain + "1_back_bedroom_2.jpg", main: false, description: "Bedroom 2"},
-			{unit_id: unit1.id, image_url: cf_domain + "1_Front_bedroom.jpg", main: false, description: "Bedroom 1"},
-			{unit_id: unit1.id, image_url: cf_domain + "1_front_bedroom_2.jpg", main: false, description: "Bedroom 1"} 	
-		]
+images = [
+	{unit_id: unit1.id, image_url: "1/kitchen_fridge.jpg", main: true, description: "Kitchen"},
+	{unit_id: unit1.id, image_url: "1/kitchen_oven.jpg", main: false, description: "Kitchen"},
+	{unit_id: unit1.id, image_url: "1/kitchen_sink.jpg", main: false, description: "Kitchen"},
+	{unit_id: unit1.id, image_url: "1/office.jpg", main: false, description: "Office"},
+	{unit_id: unit1.id, image_url: "1/office_2.jpg", main: false, description: "Office"},
+	{unit_id: unit1.id, image_url: "1/office_3.jpg", main: false, description: "Office"},
+	{unit_id: unit1.id, image_url: "1/bathroom.jpg", main: false, description: "Bathroom"},
+	{unit_id: unit1.id, image_url: "1/bathroom_2.jpg", main: false, description: "Bathroom"},
+	{unit_id: unit1.id, image_url: "1/front_room.jpg", main: false, description: "Front Room"},
+	{unit_id: unit1.id, image_url: "1/ext_front.jpg", main: false, description: "Front"},
+	{unit_id: unit1.id, image_url: "1/ext_side.jpg", main: false, description: "Side Yard"},
+	{unit_id: unit1.id, image_url: "1/back_bedroom.jpg", main: false, description: "Bedroom 2"},
+	{unit_id: unit1.id, image_url: "1/back_bedroom_2.jpg", main: false, description: "Bedroom 2"},
+	{unit_id: unit1.id, image_url: "1/front_bedroom.jpg", main: false, description: "Bedroom 1"},
+	{unit_id: unit1.id, image_url: "1/front_bedroom_2.jpg", main: false, description: "Bedroom 1"}
+]
 
 Image.create images
 
