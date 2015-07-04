@@ -13,6 +13,12 @@ WinnemacSite::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  config.action_controller.asset_host = Proc.new { |source|
+    if source.ends_with?('.jpg')
+      "http://cdn#{Digest::MD5.hexdigest(source).to_i(16) % 4}.2433winnemac.com"
+    end
+  }
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
