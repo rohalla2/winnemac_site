@@ -9,6 +9,11 @@
   </div>
   <span u="arrowleft" class="jssora02l" style="width: 55px; height: 55px; top: 300px; left:0;"></span>
   <span u="arrowright" class="jssora02r" style="width: 55px; height: 55px; top: 300px; right:0;"></span>
+
+  <div u="navigator" class="jssorb01" style="bottom: 16px; right: 10px;">
+      <!-- bullet navigator item prototype -->
+      <div u="prototype"></div>
+  </div>
 </div>
 
 <script>
@@ -24,6 +29,17 @@
 	      $AutoCenter: 2,
 	      $Steps: 1,
 	      $Scale: false
+	  	},
+	  	$BulletNavigatorOptions: {                                //[Optional] Options to specify and enable navigator or not
+	      $Class: $JssorBulletNavigator$,                       //[Required] Class to create navigator instance
+	      $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
+	      $AutoCenter: 1,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+	      $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
+	      $Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
+	      $SpacingX: 12,                                   //[Optional] Horizontal space between each item in pixel, default value is 0
+	      $SpacingY: 4,                                   //[Optional] Vertical space between each item in pixel, default value is 0
+	      $Orientation: 1,                                //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
+	      $Scale: false                                   //Scales bullets navigator or not while slider scale
 	  	}
 	  };
 	  var jssor_slider1 = new $JssorSlider$('slider1_container', options);
