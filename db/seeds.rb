@@ -20,8 +20,8 @@ images = [
 	{unit_id: unit1.id, image_url: "1/bathroom.jpg", main: false, description: "Bathroom"},
 	{unit_id: unit1.id, image_url: "1/bathroom_2.jpg", main: false, description: "Bathroom"},
 	{unit_id: unit1.id, image_url: "1/front_room.jpg", main: false, description: "Front Room"},
-	{unit_id: unit1.id, image_url: "1/ext_front.jpg", main: false, description: "Front"},
-	{unit_id: unit1.id, image_url: "1/ext_side.jpg", main: false, description: "Side Yard"},
+	{unit_id: unit1.id, image_url: "ext_front.jpg", main: false, description: "Front"},
+	{unit_id: unit1.id, image_url: "ext_side.jpg", main: false, description: "Side Yard"},
 	{unit_id: unit1.id, image_url: "1/back_bedroom.jpg", main: false, description: "Bedroom 2"},
 	{unit_id: unit1.id, image_url: "1/back_bedroom_2.jpg", main: false, description: "Bedroom 2"},
 	{unit_id: unit1.id, image_url: "1/front_bedroom.jpg", main: false, description: "Bedroom 1"},
@@ -36,7 +36,9 @@ images = [
 	{unit_id: unit2.id, image_url: "2/living_room_2.jpg", main: false, description: "Living Room"},
 	{unit_id: unit2.id, image_url: "2/living_room_3.jpg", main: false, description: "Living Room"},
 	{unit_id: unit2.id, image_url: "2/bedroom_1.jpg", main: false, description: "First Bedroom"},
-	{unit_id: unit2.id, image_url: "2/bedroom_2.jpg", main: false, description: "Second Bedroom"}
+	{unit_id: unit2.id, image_url: "2/bedroom_2.jpg", main: false, description: "Second Bedroom"},
+	{unit_id: unit2.id, image_url: "ext_front.jpg", main: false, description: "Front"},
+	{unit_id: unit2.id, image_url: "ext_side.jpg", main: false, description: "Side Yard"}
 ]
 
 Image.create images
