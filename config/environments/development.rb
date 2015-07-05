@@ -14,7 +14,7 @@ WinnemacSite::Application.configure do
   config.action_controller.perform_caching = false
 
   config.action_controller.asset_host = Proc.new { |source|
-    if source.ends_with?('.jpg')
+    if source.ends_with?('.jpg') || source.ends_with?('.png')
       "http://cdn#{Digest::MD5.hexdigest(source).to_i(16) % 4}.2433winnemac.com"
     end
   }
