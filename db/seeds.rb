@@ -1,7 +1,7 @@
 Unit.destroy_all
 
 unit1 = Unit.new(id: 1, title: "Unit 1", price: 1375, available: true, description: "Unit 1 description")
-unit2 = Unit.new(id: 2, title: "Unit 2", price: 875, available: true, description: "Unit 2 description")
+unit2 = Unit.new(id: 2, title: "Unit 2", price: 1050, available: true, description: "Unit 2 description")
 unit3 = Unit.new(id: 3, title: "Unit 3", price: 1425, available: true, description: "Unit 3 description")
 
 unit1.save
@@ -25,7 +25,18 @@ images = [
 	{unit_id: unit1.id, image_url: "1/back_bedroom.jpg", main: false, description: "Bedroom 2"},
 	{unit_id: unit1.id, image_url: "1/back_bedroom_2.jpg", main: false, description: "Bedroom 2"},
 	{unit_id: unit1.id, image_url: "1/front_bedroom.jpg", main: false, description: "Bedroom 1"},
-	{unit_id: unit1.id, image_url: "1/front_bedroom_2.jpg", main: false, description: "Bedroom 1"}
+	{unit_id: unit1.id, image_url: "1/front_bedroom_2.jpg", main: false, description: "Bedroom 1"}, 
+
+	{unit_id: unit2.id, image_url: "2/kitchen_oven.jpg", main: true, description: "Kitchen"},
+	{unit_id: unit2.id, image_url: "2/fridge.jpg", main: false, description: "Kitchen Fridge"},
+	{unit_id: unit2.id, image_url: "2/kitchen_sink.jpg", main: false, description: "Kitchen"},
+	{unit_id: unit2.id, image_url: "2/bathroom_mirror.jpg", main: false, description: "Bathroom"},
+	{unit_id: unit2.id, image_url: "2/bathroom_toilet.jpg", main: false, description: "Bathroom"},
+	{unit_id: unit2.id, image_url: "2/bathroom_shower.jpg", main: false, description: "Bathroom Shower"},
+	{unit_id: unit2.id, image_url: "2/living_room_2.jpg", main: false, description: "Living Room"},
+	{unit_id: unit2.id, image_url: "2/living_room_3.jpg", main: false, description: "Living Room"},
+	{unit_id: unit2.id, image_url: "2/bedroom_1.jpg", main: false, description: "First Bedroom"},
+	{unit_id: unit2.id, image_url: "2/bedroom_2.jpg", main: false, description: "Second Bedroom"}
 ]
 
 Image.create images
