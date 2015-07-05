@@ -1,3 +1,21 @@
 // Place all the styles related to the units controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$slider-width: 540px;
+$slider-height: 400px;
+
+#slider1_container {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: $slider-width;
+  height: $slider-height;
+  margin: 20px auto;
+}
+
+.slides-container {
+  cursor: move;
+  width: $slider-width;
+  height: $slider-height;
+  text-align: center;
+}

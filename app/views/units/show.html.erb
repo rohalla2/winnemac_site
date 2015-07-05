@@ -1,8 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 540px; height: 410px; margin-left: auto; margin-right: auto;">
+<div class="page-header">
+	<h3>
+		<%= @unit.title %>
+	</h3>	
+</div>
+
+<div id="slider1_container">
   <!-- Slides Container -->
-  <div u="slides" style="cursor: move; width: 540px; height: 410px; text-align: center;">
+  <div u="slides" class="slides-container">
 		<% @unit.images.each do |image| %>
   		<div><%= image_tag image.image_url, class: 'resized-image' %></div>
 		<% end %>
@@ -30,16 +36,16 @@
 	      $Steps: 1,
 	      $Scale: false
 	  	},
-	  	$BulletNavigatorOptions: {                                //[Optional] Options to specify and enable navigator or not
-	      $Class: $JssorBulletNavigator$,                       //[Required] Class to create navigator instance
-	      $ChanceToShow: 2,                               //[Required] 0 Never, 1 Mouse Over, 2 Always
-	      $AutoCenter: 1,                                 //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
-	      $Steps: 1,                                      //[Optional] Steps to go for each navigation request, default value is 1
-	      $Lanes: 1,                                      //[Optional] Specify lanes to arrange items, default value is 1
-	      $SpacingX: 12,                                   //[Optional] Horizontal space between each item in pixel, default value is 0
-	      $SpacingY: 4,                                   //[Optional] Vertical space between each item in pixel, default value is 0
-	      $Orientation: 1,                                //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
-	      $Scale: false                                   //Scales bullets navigator or not while slider scale
+	  	$BulletNavigatorOptions: {
+	      $Class: $JssorBulletNavigator$,
+	      $ChanceToShow: 2,  //[Required] 0 Never, 1 Mouse Over, 2 Always
+	      $AutoCenter: 1,  //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+	      $Steps: 1,
+	      $Lanes: 1,
+	      $SpacingX: 5,
+	      $SpacingY: 4,
+	      $Orientation: 1,  //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
+	      $Scale: false //Scales bullets navigator or not while slider scale
 	  	}
 	  };
 	  var jssor_slider1 = new $JssorSlider$('slider1_container', options);
@@ -67,10 +73,6 @@
 </script>
 
 
-<p>
-	<strong>Title:</strong>
-	<%= @unit.title %>
-</p>
 
 <p>
 	<strong>Price:</strong>
