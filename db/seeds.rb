@@ -1,8 +1,8 @@
 Unit.destroy_all
 
-unit1 = Unit.new(id: 1, title: "Unit 1", price: 1375, available: true, description: "Unit 1 description")
-unit2 = Unit.new(id: 2, title: "Unit 2", price: 1050, available: true, description: "Unit 2 description")
-unit3 = Unit.new(id: 3, title: "Unit 3", price: 1425, available: true, description: "Unit 3 description")
+unit1 = Unit.new(id: 1, title: "Unit 1", subtitle: "2 Bedroom + Office / 1 Bath", price: 1375, available: true, description: "Unit 1 description")
+unit2 = Unit.new(id: 2, title: "Unit 2", subtitle: "2 Bedroom / 1 Bath", price: 1050, available: true, description: "Unit 2 description")
+unit3 = Unit.new(id: 3, title: "Unit 3", subtitle: "1 Bedroom / 2.5 Bath", price: 1425, available: true, description: "Unit 3 description")
 
 unit1.save
 unit2.save
