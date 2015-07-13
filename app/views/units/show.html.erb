@@ -1,17 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 <div class="page-header">
-	<h3>
-		<%= @unit.title %>
-	</h3>	
+  <a class="application-link" href="https://www.rentapplication.net/2433winnemac/">Apply Online Now</a>
+  <div class="custom-title">
+    <%= @unit.title + ' | ' + @unit.subtitle %>
+  </div>
+</div>
+
+<div class="unit-price">
+	<%= number_to_currency(@unit.price, precision: 0) %>
+</div>
+
+<div class="unit-description">
+	<%= @unit.description.html_safe %>
 </div>
 
 <div id="slider1_container">
   <!-- Slides Container -->
   <div u="slides" class="slides-container">
-		<% @unit.images.each do |image| %>
-  		<div><%= image_tag image.image_url, class: 'resized-image' %></div>
-		<% end %>
+    <% @unit.images.each do |image| %>
+      <div>
+        <%= image_tag image.image_url, class: 'resized-image' %>
+        <div class="image-caption" u="caption" t="L-R">
+          <!-- Any HTML Content Here -->
+          <%= image.description %>
+        </div>
+      </div>
+    <% end %>
   </div>
   <span u="arrowleft" class="jssora02l" style="width: 55px; height: 55px; top: 300px; left:0;"></span>
   <span u="arrowright" class="jssora02r" style="width: 55px; height: 55px; top: 300px; right:0;"></span>
@@ -23,73 +38,74 @@
 </div>
 
 <script>
-	jQuery(document).ready(function ($) {
-	  var options = {
-	  	$AutoPlay: true,
-	  	$AutoPlayInterval: 4000,
-	  	$PauseOnHover: 1,
-	  	$ArrowKeyNavigation: true,
-	  	$ArrowNavigatorOptions: {
-	      $Class: $JssorArrowNavigator$,
-	      $ChanceToShow: 2,
-	      $AutoCenter: 2,
-	      $Steps: 1,
-	      $Scale: false
-	  	},
-	  	$BulletNavigatorOptions: {
-	      $Class: $JssorBulletNavigator$,
-	      $ChanceToShow: 2,  //[Required] 0 Never, 1 Mouse Over, 2 Always
-	      $AutoCenter: 1,  //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
-	      $Steps: 1,
-	      $Lanes: 1,
-	      $SpacingX: 5,
-	      $SpacingY: 4,
-	      $Orientation: 1,  //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
-	      $Scale: false //Scales bullets navigator or not while slider scale
-	  	}
-	  };
-	  var jssor_slider1 = new $JssorSlider$('slider1_container', options);
+  jQuery(document).ready(function ($) {
+    var _CaptionTransitions = [];
+    //Left to Right
+    _CaptionTransitions["L-R"] = { $Duration: 800, $FlyDirection: 1 };
+    //Right to Left
+    _CaptionTransitions["R-L"] = { $Duration: 800, $FlyDirection: 2 };
+    //Top to Bottom
+    _CaptionTransitions["T-B"] = { $Duration: 800, $FlyDirection: 4 };
+    //Bottom to Top
+    _CaptionTransitions["B-T"] = { $Duration: 800, $FlyDirection: 8 };
 
-	   //responsive code begin
+    var options = {
+      $HWA: false,
+      $AutoPlay: true,
+      $AutoPlayInterval: 4000,
+      $PauseOnHover: 1,
+      $ArrowKeyNavigation: true,
+      $ArrowNavigatorOptions: {
+        $Class: $JssorArrowNavigator$,
+        $ChanceToShow: 2,
+        $AutoCenter: 2,
+        $Steps: 1,
+        $Scale: false
+      },
+      $BulletNavigatorOptions: {
+        $Class: $JssorBulletNavigator$,
+        $ChanceToShow: 2,  //[Required] 0 Never, 1 Mouse Over, 2 Always
+        $AutoCenter: 1,  //[Optional] Auto center navigator in parent container, 0 None, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
+        $Steps: 1,
+        $Lanes: 1,
+        $SpacingX: 5,
+        $SpacingY: 4,
+        $Orientation: 1,  //[Optional] The orientation of the navigator, 1 horizontal, 2 vertical, default value is 1
+        $Scale: false //Scales bullets navigator or not while slider scale
+      },
+      $CaptionSliderOptions: {
+        $Class: $JssorCaptionSlider$,
+        $CaptionTransitions: _CaptionTransitions,
+        $PlayInMode: 1,
+        $PlayOutMode: 3
+      }
+    };
+    var jssor_slider1 = new $JssorSlider$('slider1_container', options);
+
+     //responsive code begin
         //you can remove responsive code if you don't want the slider scales
         //while window resizes
         function ScaleSlider() {
             var parentWidth = $('#slider1_container').parent().width();
             if (parentWidth) {
-                jssor_slider1.$ScaleWidth(parentWidth * 0.65);
+              if (parentWidth < 768) {
+                console.log('first');
+                jssor_slider1.$ScaleWidth(parentWidth);
+              } else {
+                console.log('two');
+                jssor_slider1.$ScaleWidth(parentWidth * 0.75);
+              }
             }
             else
                 window.setTimeout(ScaleSlider, 30);
         }
         //Scale slider after document ready
         ScaleSlider();
-                                        
+
         //Scale slider while window load/resize/orientationchange.
         $(window).bind("load", ScaleSlider);
         $(window).bind("resize", ScaleSlider);
         $(window).bind("orientationchange", ScaleSlider);
         //responsive code end
-	});
+  });
 </script>
-
-
-
-<p>
-	<strong>Price:</strong>
-	<%= @unit.price %>
-</p>
-
-<p>
-	<strong>Available:</strong>
-	<%= @unit.available %>
-</p>
-
-<p>
-	<strong>Description:</strong>
-	<%= @unit.description %>
-</p>
-
-<%= link_to 'Edit', edit_unit_path(@unit) %> |
-<%= link_to 'Back', units_path %>
-
-<a href="https://www.rentapplication.net/2433winnemac/" style="color: white; background-color:#00ACEC; text-decoration:none; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; text-shadow: 1px 1px rgba(0,0,0,0.4); display:inline-block; padding:10px 20px; margin: 10px; -border-radius:4px; -webkit-border-radius:4px; -moz-border-radius:4px;" onMouseOver="this.style.backgroundColor='#08C'" onMouseOut="this.style.backgroundColor='#00ACEC'">Apply Online Now</a>

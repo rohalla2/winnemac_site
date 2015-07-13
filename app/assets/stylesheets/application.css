@@ -12,6 +12,10 @@
  *= require_tree .
  */
 
+.preview-image {
+  height: auto;
+  width: 280px;
+}
 
 .resized-image{
 	height: 400px;
