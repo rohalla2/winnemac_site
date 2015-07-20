@@ -1,6 +1,4 @@
 WinnemacSite::Application.routes.draw do
-  resources :messages
-
   resources :spaces
 
   resources :units
