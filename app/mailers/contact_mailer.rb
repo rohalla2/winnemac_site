@@ -3,6 +3,6 @@ class ContactMailer < ActionMailer::Base
 
   def contact_email(contact_params)
     @message_info = contact_params
-    mail(to: ENV["CONTACT_EMAIL"], subject: 'Contact Submission for 2433winnemac.com'))
+    mail(to: ENV["CONTACT_EMAIL"], subject: 'Contact Submission for 2433winnemac.com')
   end
 end

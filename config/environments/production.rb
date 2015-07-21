@@ -63,6 +63,15 @@ WinnemacSite::Application.configure do
     end
   }
 
+  config.action_mailer.delivery_method = :smtp
+    config.action_mailer.smtp_settings = {
+    :port           => ENV['MAILGUN_SMTP_PORT'],
+    :address        => ENV['MAILGUN_SMTP_SERVER'],
+    :user_name      => ENV['MAILGUN_SMTP_LOGIN'],
+    :password       => ENV['MAILGUN_SMTP_PASSWORD'],
+    :domain         => '2433winnemac.com',
+    :authentication => :plain,
+  }
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
   # config.assets.precompile += %w( search.js )

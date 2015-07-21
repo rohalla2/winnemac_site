@@ -1,0 +1,26 @@
+<%= form_tag '/contact/create', class: "form-horozontal col-md-8" do %>
+  <fieldset>
+    <div class="form-group">
+      <%=  label_tag :name, nil, class: "control-label" %><br>
+      <%= text_field_tag :name, nil, class: "form-control", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :email, nil, class: "control-label" %><br>
+      <%= email_field_tag :email, nil, class: "form-control", required: true %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :subject, nil, class: "control-label" %><br>
+      <%= text_field_tag :subject, nil, class: "form-control", required: true %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :message, nil, class: "control-label" %><br>
+      <%= text_area_tag :message, nil, class: "form-control", required: true %>
+    </div>
+
+    <div class="actions">
+      <%= submit_tag 'Send Message' %>
+    </div>
+
+  </fieldset>
+<% end %>
