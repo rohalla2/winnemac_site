@@ -2,10 +2,10 @@ class ContactController < ApplicationController
   def create
     message = {}
     filtered_params = message_params
-    message[:name] = params[:name]
-    message[:subject] = params[:subject]
-    message[:email] = params[:email]
-    message[:message] = params[:message_params]
+    message[:name] = filtered_params[:name]
+    message[:subject] = filtered_params[:subject]
+    message[:email] = filtered_params[:email]
+    message[:message] = filtered_params[:message]
 
     ContactMailer.contact_email(message).deliver
     redirect_to root_path, notice: "Form Submitted."
