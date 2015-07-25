@@ -36,8 +36,14 @@
 				</div><!--/.nav-collapse -->
 			</div><!--/.container-fluid -->
 		</div>
-		<%= yield %>
-	</div>
+    <% if notice.present? %>
+      <div class="alert alert-dismissable alert-success">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <%= notice %>
+      </div>
+    <% end %>
+    <%= yield %>
+  </div>
 </body>
 </html>
 

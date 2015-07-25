@@ -1,11 +1,9 @@
 WinnemacSite::Application.routes.draw do
-  resources :messages
-
   resources :spaces
-
   resources :units
 
-  get '/contact' => 'messages#new'
+  get 'contact' => 'contact#new'
+  post 'contact/create' => 'contact#create'
 
   root 'static_pages#index'
   get "static_pages/index"
