@@ -1,26 +1,37 @@
-<%= form_tag '/contact/create', class: "form-horozontal col-md-8" do %>
-  <fieldset>
-    <div class="form-group">
-      <%=  label_tag :name, nil, class: "control-label" %><br>
-      <%= text_field_tag :name, nil, class: "form-control", required: true %>
-    </div>
+<%= form_for @message, url: '/contact', html: {class: "form-horozontal col-md-8"} do |f| %>
+  <% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
 
-    <div class="form-group">
-      <%= label_tag :email, nil, class: "control-label" %><br>
-      <%= email_field_tag :email, nil, class: "form-control", required: true %>
+      <ul>
+      <% @message.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
     </div>
-    <div class="form-group">
-      <%= label_tag :subject, nil, class: "control-label" %><br>
-      <%= text_field_tag :subject, nil, class: "form-control", required: true %>
-    </div>
-    <div class="form-group">
-      <%= label_tag :message, nil, class: "control-label" %><br>
-      <%= text_area_tag :message, nil, class: "form-control", required: true %>
-    </div>
+  <% end %>
 
-    <div class="actions">
-      <%= submit_tag 'Send Message' %>
-    </div>
-
-  </fieldset>
+  <div class="form-group">
+    <%= f.label :name, class: "control-label"%><br>
+    <%= f.text_field :name, class: "form-control", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :email, class: "control-label"%><br>
+    <%= f.text_field :email, class: "form-control", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :phone, class: "control-label"%><br>
+    <%= f.text_field :phone, class: "form-control", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :subject, class: "control-label"%><br>
+    <%= f.text_field :subject, class: "form-control", required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :message, class: "control-label"%><br>
+    <%= f.text_field :message, class: "form-control", required: true %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Send Message' %>
+  </div>
 <% end %>
