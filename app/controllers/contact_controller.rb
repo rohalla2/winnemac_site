@@ -1,18 +1,20 @@
 class ContactController < ApplicationController
-  def create
-    message = {}
-    filtered_params = message_params
-    message[:name] = filtered_params[:name]
-    message[:subject] = filtered_params[:subject]
-    message[:email] = filtered_params[:email]
-    message[:message] = filtered_params[:message]
+  def new
+    @message = Contact.new
+  end
 
-    ContactMailer.contact_email(message).deliver
-    redirect_to root_path, notice: "Form Submitted."
+  def create
+    @message = Contact.new(message_params)
+    if @message.save
+      ContactMailer.delay.contact_email(@message.id)
+      redirect_to root_path, notice: "Form Submitted"
+    else
+      render action: 'new'
+    end
   end
 
   private
     def message_params
-      params.permit(:name, :email, :subject, :message) 
+      params.require(:contact).permit(:name, :email, :subject, :message, :phone)
     end
 end

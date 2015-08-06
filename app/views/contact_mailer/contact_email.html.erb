@@ -7,16 +7,19 @@
     <h1>A user submitted the contact form at 2433Winnemac.com</h1>
 
     <p>
-      Contact Name: <%= @message_info[:name] %>.<br>
+      Contact Name: <%= @message[:name] %>.<br>
     </p>
     <p>
-      Contact Email: <%= @message_info[:email] %>.<br>
+      Contact Email: <%= @message[:email] %>.<br>
     </p>
     <p>
-      Subject: <%= @message_info[:subject] %>.<br>
+      Phone: <%= @message[:phone] %>.<br>
     </p>
     <p>
-      Message: <%= @message_info[:message] %>.<br>
+      Subject: <%= @message[:subject] %>.<br>
+    </p>
+    <p>
+      Message: <%= @message[:message] %>.<br>
     </p>
   </body>
 </html>
