@@ -3,7 +3,7 @@
 <% @units.each do |unit| %>
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-4">
    <% image = unit.images.where(main: true).first %>
    <% if !image.nil? %>
     <%= link_to(image_tag(image.image_url, :alt => "property_photo", class: "preview-image"),unit_path(unit)) %>
@@ -11,7 +11,7 @@
     <%= link_to(image_tag('ext_front.png', :alt => "property_photo", class: "preview-image"), unit_path(unit)) %>
   <% end %>
   </div>
-  <div class="col-md-9">
+  <div class="col-md-8">
     <h2><%=unit.title%></h2>
     <h4><%= number_to_currency(unit.price)%></h4>
   </div>

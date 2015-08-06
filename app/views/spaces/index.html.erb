@@ -2,10 +2,10 @@
 <% @spaces.each do |space| %>
 
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-4">
     <%= link_to(image_tag(space.image_url, :alt => "property_photo", class: "preview-image"),space_path(space)) %>
   </div>
-  <div class="col-md-9">
+  <div class="col-md-8">
     <h2><%=space.title%></h2>
     <h4><%= number_to_currency(space.price)%></h4>
     <p><%=space.description%></p>
