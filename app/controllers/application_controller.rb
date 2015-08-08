@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
 
   protected
     def find_user
-      puts 'in find_user'
       if session[:user_id] != nil
         @user = User.find_by(id: session[:user_id])
       else
@@ -16,7 +15,7 @@ class ApplicationController < ActionController::Base
 
     def authorize
       unless User.find_by(id: session[:user_id])
-        redirect_to properties_url, notice: "You need to log in to access this feature!"
+        redirect_to root_url
       end
     end
 end

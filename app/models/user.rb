@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   has_secure_password
-
   validate :only_one
 
   def only_one

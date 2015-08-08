@@ -1,5 +1,5 @@
 WinnemacSite::Application.routes.draw do
-  resources :spaces
+  resources :spaces, except: [:new, :create, :destroy]
   resources :units
   resources :users, only: [:new, :create]
   resources :contact, only: [:new, :create]
