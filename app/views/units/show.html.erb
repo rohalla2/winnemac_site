@@ -109,3 +109,7 @@
         //responsive code end
   });
 </script>
+<% if @user  %>
+  <%= link_to 'Edit', edit_unit_path(@unit) %> |
+<% end %>
+<%= link_to 'Back', units_path %>

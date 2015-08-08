@@ -18,11 +18,11 @@ class SpacesController < ApplicationController
 
   # PATCH/PUT /spaces/1
   def update
-      if @space.update(space_params)
-        redirect_to @space, notice: 'Space was successfully updated.'
-      else
-        render action: 'edit'
-      end
+    if @space.update(space_params)
+      redirect_to @space, notice: 'Space was successfully updated.'
+    else
+      render action: 'edit'
+    end
   end
 
   private
