@@ -1,3 +1,4 @@
+User.destroy_all
 Unit.destroy_all
 
 unit1 = Unit.new(

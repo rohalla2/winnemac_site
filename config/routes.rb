@@ -1,10 +1,16 @@
 WinnemacSite::Application.routes.draw do
-  resources :spaces
-  resources :units
+  resources :spaces, except: [:new, :create, :destroy]
+  resources :units, except: [:new, :create, :destroy]
+  resources :users, only: [:new, :create]
   resources :contact, only: [:new, :create]
 
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+
   root 'static_pages#index'
-  get "static_pages/index"
   get "static_pages/about"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

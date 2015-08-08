@@ -11,3 +11,9 @@ This project uses Sidekiq to to execute jobs for every message sent via the cont
 * Install [Redis](http://redis.io/)
 * Start the redis server with `redis-server`
 * Start Sidekiq with `bundle exec sidekiq`
+* `bundle exec rake db:migrate`
+* `bundle exec rake db:seed`
+* `rails s`
+
+
+Note: in production, after doing a db:seed, you must register your admin user again.

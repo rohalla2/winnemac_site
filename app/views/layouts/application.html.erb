@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>2433 W Winnemac, Chicago, IL 60625</title>
-	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-	<%= csrf_meta_tags %>
+  <title>2433 W Winnemac, Chicago, IL 60625</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
 
-	<link rel="stylesheet" type="text/css" href="http://bootswatch.com/cyborg/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="http://bootswatch.com/cyborg/bootstrap.min.css">
 
-	<script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
-	<script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
+  <script src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+  <script src="http://getbootstrap.com/assets/js/docs.min.js"></script>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 <body>
-	<div class="container">
-		<div class="navbar navbar-inverse" role="navigation">
-			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="/">2433 W Winnemac Ave</a>
-				</div>
-				<div class="navbar-collapse collapse">
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="/contact/new">Contact</a></li>
-						<li><a href="/spaces">Parking</a></li>
-						<li><%= link_to "Units", units_path %></li>
-					</ul>
-				</div><!--/.nav-collapse -->
-			</div><!--/.container-fluid -->
-		</div>
+  <div class="container">
+   <div class="navbar navbar-inverse" role="navigation">
+     <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+         <span class="sr-only">Toggle navigation</span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">2433 W Winnemac Ave</a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+         <li><a href="/contact/new">Contact</a></li>
+         <li><a href="/spaces">Parking</a></li>
+         <li><%= link_to "Units", units_path %></li>
+            <% if @user %>
+              <li><%= button_to "logout", logout_path , class: "btn btn-danger", method: :delete %> </li>
+            <% end %>
+        </ul>
+      </div><!--/.nav-collapse -->
+     </div><!--/.container-fluid -->
+   </div>
     <% if notice.present? %>
       <div id="notice-alert" class="alert alert-dismissable alert-success">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -46,6 +49,12 @@
           $("#notice-alert").fadeOut();
         }, 5000);
       </script>
+    <% end %>
+
+    <% if @user %>
+      <p>
+        You are logged in as <%= @user.login %>
+      </p>
     <% end %>
     <%= yield %>
   </div>

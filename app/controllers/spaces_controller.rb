@@ -1,63 +1,27 @@
 class SpacesController < ApplicationController
-  before_action :set_space, only: [:show, :edit, :update, :destroy]
+  before_action :set_space, only: [:show, :edit, :update]
+  before_action :authorize, only: [:edit, :update]
 
   # GET /spaces
-  # GET /spaces.json
   def index
-    @spaces = Space.where(available:true)
+    if @user.nil?
+      @spaces = Space.where(available:true).order(:id)
+    else
+      @spaces = Space.all.order(:id)
+    end
   end
 
   # GET /spaces/1
-  # GET /spaces/1.json
   def show
-  end
-
-  # GET /spaces/new
-  def new
-    @space = Space.new
-  end
-
-  # GET /spaces/1/edit
-  def edit
-  end
-
-  # POST /spaces
-  # POST /spaces.json
-  def create
-    @space = Space.new(space_params)
-
-    respond_to do |format|
-      if @space.save
-        format.html { redirect_to @space, notice: 'Space was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @space }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @space.errors, status: :unprocessable_entity }
-      end
-    end
+    redirect_to spaces_url, notice: 'Space not available' unless @space.available || @user
   end
 
   # PATCH/PUT /spaces/1
-  # PATCH/PUT /spaces/1.json
   def update
-    respond_to do |format|
-      if @space.update(space_params)
-        format.html { redirect_to @space, notice: 'Space was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @space.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /spaces/1
-  # DELETE /spaces/1.json
-  def destroy
-    @space.destroy
-    respond_to do |format|
-      format.html { redirect_to spaces_url }
-      format.json { head :no_content }
+    if @space.update(space_params)
+      redirect_to @space, notice: 'Space was successfully updated.'
+    else
+      render action: 'edit'
     end
   end
 
