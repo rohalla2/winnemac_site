@@ -1,6 +1,9 @@
-		<div class="jumbotron">
-			<h1>Parking Available</h1>
-			<p>Two parking spots available starting July 1. </p>
-			<p><a class="btn btn-primary btn-lg">Learn more</a></p>
-		</div>
-<h1>Coming soon...</h1>
+<div class="jumbotron">
+  <h1>Parking Available</h1>
+  <p>Two exterior parking spots available starting September 1. </p>
+  <%= link_to('Learn More', spaces_path , class: 'btn btn-primary btn-lg') %>
+</div>
+
+<div id="main-image-container">
+  <%= image_tag('ext_front.png', :alt => "property_photo", class: "main-image") %>
+</div>
