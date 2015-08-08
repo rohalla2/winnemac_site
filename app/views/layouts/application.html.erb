@@ -37,10 +37,15 @@
 			</div><!--/.container-fluid -->
 		</div>
     <% if notice.present? %>
-      <div class="alert alert-dismissable alert-success">
+      <div id="notice-alert" class="alert alert-dismissable alert-success">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
         <%= notice %>
       </div>
+      <script type="text/javascript">
+        setTimeout(function() {
+          $("#notice-alert").fadeOut();
+        }, 5000);
+      </script>
     <% end %>
     <%= yield %>
   </div>
