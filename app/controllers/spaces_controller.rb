@@ -5,9 +5,9 @@ class SpacesController < ApplicationController
   # GET /spaces
   def index
     if @user.nil?
-      @spaces = Space.where(available:true)
+      @spaces = Space.where(available:true).order(:id)
     else
-      @spaces = Space.all
+      @spaces = Space.all.order(:id)
     end
   end
 

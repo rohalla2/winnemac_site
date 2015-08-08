@@ -5,9 +5,9 @@ class UnitsController < ApplicationController
   # GET /units
   def index
     if @user.nil?
-      @units = Unit.where(available:true)
+      @units = Unit.where(available:true).order(:id)
     else
-      @units = Unit.all
+      @units = Unit.all.order(:id)
     end
   end
 
