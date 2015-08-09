@@ -98,10 +98,10 @@ Image.create images
 Space.destroy_all
 
 spaces = [
-	{title: "Garage Space 1", description: "Space in the garage.", image_url: "parking.png", price: 120, available: true},
-	{title: "Garage Space 2", description: "Space in the garage.", image_url: "parking.png", price: 120, available: true},
-	{title: "Uncovered Space 1", description: "Outside space.", image_url: "parking.png", price: 70, available: true},
-	{title: "Uncovered Space 2", description: "Outside space.", image_url: "parking.png", price: 70, available: true}
+	{title: "Garage Space 1", image_url: 'parking/parking.png', description: "Space in the garage.", price: 120, available: true},
+	{title: "Garage Space 2", image_url: 'parking/garage_right.png', description: "Space in the garage.", price: 120, available: true},
+	{title: "Uncovered Space 1", image_url: 'parking/outside_left.png', description: "Outside space.", price: 70, available: true},
+	{title: "Uncovered Space 2", image_url: 'parking/outside_right.png', description: "Outside space.", price: 70, available: true}
 ]
 
 Space.create spaces

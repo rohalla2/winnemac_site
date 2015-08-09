@@ -11,15 +11,10 @@ class SpacesController < ApplicationController
     end
   end
 
-  # GET /spaces/1
-  def show
-    redirect_to spaces_url, notice: 'Space not available' unless @space.available || @user
-  end
-
   # PATCH/PUT /spaces/1
   def update
     if @space.update(space_params)
-      redirect_to @space, notice: 'Space was successfully updated.'
+      redirect_to spaces_url, notice: 'Space was successfully updated.'
     else
       render action: 'edit'
     end
