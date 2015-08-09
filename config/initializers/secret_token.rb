@@ -9,4 +9,6 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-WinnemacSite::Application.config.secret_key_base = '30ac0c07bda2fbe3ff995c0d4463a79311bb45c5527dad6f41dab9ea18e6310ea1235bef55362aefdc8b7d44685fa1c368aa3b97abbf8d895b825c3e97319550'
+secret = Rails.env.production? ? ENV['SECRET_TOKEN'] : "d077ad9593587aa71e3f34771ba81fc90854178026d9b5395a11454b8ed0077151d960f050e62e029334990a6d6b279cfc432a0de043e47da21e24144f8e0767"
+
+WinnemacSite::Application.config.secret_key_base = secret
