@@ -9,6 +9,10 @@
     <h2><%=space.title%></h2>
     <h4><%= number_to_currency(space.price)%></h4>
     <p><%=space.description%></p>
+    <% if @user %>
+      <p>SPOT ID: <%= space.id %> </p>
+      <p>AVAILABLE: <%= space.available %> </p>
+    <% end %>
   </div>
 </div>
 
