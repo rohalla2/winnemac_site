@@ -13,4 +13,4 @@
 //= require turbolinks
 //= require jquery-1.11.3.min
 //= require jssor.slider.mini
-//= require_tree .
+//= require bootstrap.min.js
